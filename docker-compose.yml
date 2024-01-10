@@ -1,21 +1,11 @@
 version: '3.8'
 
 services:
-  notejam:
-    image: notejam
-    container_name: notejam
-    build:
-      context: .
-      dockerfile: Dockerfile
-    ports:
-      - "3000:3000"
-    command: npm start
-    networks:
-      - notejam
   mysql:
     image: mysql:latest
     container_name: mysql_db
     restart: always
+    command: mysqld --default-authentication-plugin=mysql_native_password
     environment:
       MYSQL_ROOT_PASSWORD: hello123 
       MYSQL_DATABASE: notejam 
@@ -27,7 +17,18 @@ services:
       - mysql_data:/var/lib/mysql
     networks:
       - notejam
-
+  notejam:
+    image: notejam
+    container_name: notejam
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    networks:
+      - notejam
+    depends_on:
+      -  mysql
 volumes:
   mysql_data:
 

@@ -1,4 +1,4 @@
-FROM node:18.18.1-alpine
+FROM node:bullseye-slim
 
 # Set the working directory in the container
 WORKDIR /usr/src/app
@@ -16,4 +16,4 @@ COPY . .
 EXPOSE 3000
 
 # Define the command to run your application
-CMD ["npm", "start"]
+CMD ["bash", "deploy.sh"]
