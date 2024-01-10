@@ -1,23 +1,23 @@
 var settings = {
   development: {
     db: {
-      host: 'localhost',
+      host: 'mysql',
       user: 'notejam',
       password: 'notejam123',
       database: 'notejam',
       connectionLimit: 10 // Adjust as needed
     },
-    dsn: 'mysql://notejam:notejam123@localhost/notejam'
+    dsn: 'mysql://notejam:notejam123@mysql/notejam'
   },
   test: {
     db: {
-      host: 'localhost',
+      host: 'mysql',
       user: 'notejam',
       password: 'notejam123',
       database: 'notejam',
       connectionLimit: 10 // Adjust as needed
     },
-    dsn: 'mysql://notejam:notejam123@localhost/notejam'
+    dsn: 'mysql://notejam:notejam123@mysql/notejam'
   }
 };
 

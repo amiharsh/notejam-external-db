@@ -46,7 +46,7 @@ app.use(passport.session());
 app.use(express.static(path.join(__dirname, 'public')));
 
 orm.settings.set("instance.returnAllErrors", true);
-app.use(orm.express("mysql://notejam:notejam123@localhost/notejam", {
+app.use(orm.express("mysql://notejam:notejam123@mysql/notejam", {
   define: function (db, models, next) {
     console.log('ORM Middleware: Connected to database');
     db.load("./models", function (err) {
